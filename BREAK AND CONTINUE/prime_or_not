@@ -1,0 +1,36 @@
+#include <stdio.h>          // Header file for input and output functions
+
+int main()                 // Main function where program starts
+{
+    int num;               // Variable to store the input number
+    int i;                 // Loop variable
+    int flag = 0;          // flag = 0 means prime, flag = 1 means not prime
+
+    scanf("%d", &num);     // Read number from user 
+
+    if (num <= 1)          // Check if number is less than or equal to 1
+    {
+        printf("Invalid input");  // Numbers <= 1 are invalid
+        return 0;                 // Exit the program
+    }
+
+    for (i = 2; i < num; i++)     // Loop from 2 to num-1
+    {
+        if (num % i == 0)         // Check divisibility using loop variable i
+        {
+            flag = 1;             // If divisible, number is not prime
+            break;                // Exit loop immediately (exit point)
+        }
+    }
+
+    if (flag == 0)                // If no divisor was found
+    {
+        printf("%d is a prime number", num);     // Print prime message
+    }
+    else                          // If divisor was found
+    {
+        printf("%d is not a prime number", num); // Print not prime message
+    }
+
+    return 0;                     // End of program
+}
